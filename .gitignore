@@ -5,3 +5,6 @@ dist/
 .env
 .env.local
 coverage/
+
+# Internal docs (not for public repo)
+LAUNCH.md
