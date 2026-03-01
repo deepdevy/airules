@@ -1,0 +1,65 @@
+{
+  "name": "airules",
+  "version": "0.1.0",
+  "description": "One command. Every AI coding tool. Zero config. Auto-scan your project and generate rule files for Claude, Cursor, Copilot, Windsurf, Cline, Codex, Gemini, Aider, Zed, Roo Code, and Amazon Q.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "airules": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ai",
+    "rules",
+    "claude",
+    "cursor",
+    "copilot",
+    "windsurf",
+    "cline",
+    "codex",
+    "gemini",
+    "aider",
+    "zed",
+    "roo-code",
+    "amazon-q",
+    "coding-assistant",
+    "developer-tools",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^13.0.0",
+    "yaml": "^2.6.0",
+    "chalk": "^5.4.0",
+    "ora": "^8.0.0",
+    "fast-glob": "^3.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsup": "^8.4.0",
+    "vitest": "^3.0.0",
+    "@types/node": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
