@@ -21,9 +21,8 @@ describe('engine', () => {
         projectRoot: 'tests/fixtures/nextjs-project',
       });
 
-      // Should have at least one emit result per registered tool
-      const toolIds = listTools();
-      expect(result.emitResults.length).toBeGreaterThanOrEqual(toolIds.length);
+      // Should have emit results (deduplicated by path — codex and opencode share AGENTS.md)
+      expect(result.emitResults.length).toBeGreaterThanOrEqual(listTools().length - 1);
 
       // Each emit result should have path and content
       for (const emit of result.emitResults) {
@@ -99,12 +98,13 @@ describe('engine', () => {
   });
 
   describe('listTools', () => {
-    it('should return 11 tool IDs', () => {
+    it('should return 12 tool IDs', () => {
       const tools = listTools();
-      expect(tools).toHaveLength(11);
+      expect(tools).toHaveLength(12);
       expect(tools).toContain('claude');
       expect(tools).toContain('cursor');
       expect(tools).toContain('copilot');
+      expect(tools).toContain('opencode');
     });
   });
 });

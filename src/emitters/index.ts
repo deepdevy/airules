@@ -11,6 +11,7 @@ import { aiderEmitter } from './aider.js';
 import { zedEmitter } from './zed.js';
 import { rooEmitter } from './roo.js';
 import { amazonqEmitter } from './amazonq.js';
+import { opencodeEmitter } from './opencode.js';
 
 /**
  * Registry of all tool emitters.
@@ -28,6 +29,7 @@ export const emitters: ToolEmitter[] = [
   zedEmitter,
   rooEmitter,
   amazonqEmitter,
+  opencodeEmitter,
 ];
 
 export function getEmitter(toolId: string): ToolEmitter | undefined {

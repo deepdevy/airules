@@ -51,8 +51,8 @@ const emptyScan: ScanResult = {
 };
 
 describe('emitters registry', () => {
-  it('should have exactly 11 emitters registered', () => {
-    expect(emitters).toHaveLength(11);
+  it('should have exactly 12 emitters registered', () => {
+    expect(emitters).toHaveLength(12);
   });
 
   it('should have unique ids', () => {
@@ -133,6 +133,7 @@ describe('all emitters return exactly 1 EmitResult with correct path', () => {
     zed: '.rules',
     roo: '.roo/rules/airules.md',
     amazonq: '.amazonq/rules/airules.md',
+    opencode: 'AGENTS.md',
   };
 
   for (const emitter of emitters) {

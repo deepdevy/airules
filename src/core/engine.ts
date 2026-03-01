@@ -118,14 +118,17 @@ export async function generate(options: GenerateOptions): Promise<GenerateResult
     ?? config?.tools
     ?? getAllEmitterIds();
 
-  // Step 6: Emit for each target tool
-  const emitResults: EmitResult[] = [];
+  // Step 6: Emit for each target tool (deduplicate by output path — last emitter wins)
+  const emitMap = new Map<string, EmitResult>();
   for (const toolId of targetToolIds) {
     const emitter = getEmitter(toolId);
     if (emitter) {
-      emitResults.push(...emitter.emit(mergedSections, scan));
+      for (const result of emitter.emit(mergedSections, scan)) {
+        emitMap.set(result.path, result);
+      }
     }
   }
+  const emitResults = Array.from(emitMap.values());
 
   return {
     scan,

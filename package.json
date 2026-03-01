@@ -1,7 +1,7 @@
 {
   "name": "airulegen",
   "version": "0.1.0",
-  "description": "One command. Every AI coding tool. Zero config. Auto-scan your project and generate rule files for Claude, Cursor, Copilot, Windsurf, Cline, Codex, Gemini, Aider, Zed, Roo Code, and Amazon Q.",
+  "description": "One command. Every AI coding tool. Zero config. Auto-scan your project and generate rule files for Claude, Cursor, Copilot, Windsurf, Cline, Codex, OpenCode, Gemini, Aider, Zed, Roo Code, and Amazon Q.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -36,6 +36,7 @@
     "windsurf",
     "cline",
     "codex",
+    "opencode",
     "gemini",
     "aider",
     "zed",

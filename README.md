@@ -4,7 +4,7 @@
 
 **One command. Every AI coding tool. Zero config.**
 
-Auto-scan your project and generate optimized rule files for Claude, Cursor, Copilot, Windsurf, and 8 more tools.
+Auto-scan your project and generate optimized rule files for Claude, Cursor, Copilot, Windsurf, and 9 more tools.
 
 [![npm version](https://img.shields.io/npm/v/airules?color=blue)](https://www.npmjs.com/package/airules)
 [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
@@ -233,7 +233,7 @@ Every rule is something an AI can follow immediately. No fluff.
 | Generate rules from scratch | **Yes** | No | No |
 | Convert between formats | Planned | Yes | Yes |
 | Zero config | **Yes** | No | No |
-| Tools supported | **12** | 15 | 8 |
+| Tools supported | **13** | 15 | 8 |
 | Framework presets | **10** | 0 | 0 |
 | Language | TypeScript | TypeScript | Python |
 | One command | `npx airulegen init` | Manual config | `pip install` + config |
