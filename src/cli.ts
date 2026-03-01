@@ -94,7 +94,7 @@ program
       }
 
       console.log();
-      console.log(chalk.dim('Run `npx airules sync` to regenerate from config.'));
+      console.log(chalk.dim('Run `npx airulegen sync` to regenerate from config.'));
     } catch (err) {
       spinner.fail('Failed');
       console.error(chalk.red(err instanceof Error ? err.message : String(err)));
@@ -191,7 +191,7 @@ program
 
     config.presets.push(presetId);
     await saveConfig(projectRoot, config);
-    console.log(chalk.green(`\u2713 Added preset "${presetId}". Run \`npx airules sync\` to regenerate.`));
+    console.log(chalk.green(`✓ Added preset "${presetId}". Run \`npx airulegen sync\` to regenerate.`));
   });
 
 program.parse();
