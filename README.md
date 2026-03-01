@@ -19,7 +19,7 @@ Auto-scan your project and generate optimized rule files for Claude, Cursor, Cop
 > `airules` scans your tech stack and generates them all — instantly.
 
 ```bash
-npx airules init
+npx airulegen init
 ```
 
 <div align="center">
@@ -27,7 +27,7 @@ npx airules init
 <!-- TODO: Replace with actual terminal recording (asciinema or VHS) -->
 
 ```
-$ npx airules init
+$ npx airulegen init
 
 ✔ Project scanned
 
@@ -71,9 +71,9 @@ You're using AI coding assistants. So is your team. But each tool needs its own 
 
 | Problem | Without airules | With airules |
 |---------|----------------|-------------|
-| New project setup | Manually write rules for each AI tool | `npx airules init` — done in 2 seconds |
+| New project setup | Manually write rules for each AI tool | `npx airulegen init` — done in 2 seconds |
 | Team consistency | Everyone has different rules (or none) | Commit generated files — whole team benefits |
-| Adding a new AI tool | Copy-paste and adapt from another tool's format | `npx airules sync` — regenerate all |
+| Adding a new AI tool | Copy-paste and adapt from another tool's format | `npx airulegen sync` — regenerate all |
 | Framework best practices | Google it, hope the AI follows it | Built-in presets with battle-tested rules |
 
 ## Supported Tools
@@ -128,31 +128,31 @@ Auto-detected from your project. Zero config required.
 ### Generate rules for all tools
 
 ```bash
-npx airules init
+npx airulegen init
 ```
 
 ### Generate for specific tools only
 
 ```bash
-npx airules init --tools claude,cursor,copilot
+npx airulegen init --tools claude,cursor,copilot
 ```
 
 ### Preview without writing files
 
 ```bash
-npx airules init --dry-run
+npx airulegen init --dry-run
 ```
 
 ### Regenerate from existing config
 
 ```bash
-npx airules sync
+npx airulegen sync
 ```
 
 ### List available presets and tools
 
 ```bash
-npx airules list
+npx airulegen list
 ```
 
 ## Configuration
@@ -198,7 +198,7 @@ custom:
       - All API routes must use zod validation
 ```
 
-Edit this file, then run `npx airules sync` to regenerate.
+Edit this file, then run `npx airulegen sync` to regenerate.
 
 ## What Makes the Rules Good?
 
@@ -236,12 +236,12 @@ Every rule is something an AI can follow immediately. No fluff.
 | Tools supported | **12** | 15 | 8 |
 | Framework presets | **10** | 0 | 0 |
 | Language | TypeScript | TypeScript | Python |
-| One command | `npx airules init` | Manual config | `pip install` + config |
+| One command | `npx airulegen init` | Manual config | `pip install` + config |
 
 ## Programmatic API
 
 ```typescript
-import { generate, scanProject } from 'airules';
+import { generate, scanProject } from 'airulegen';
 
 // Scan a project
 const scan = await scanProject('./my-project');

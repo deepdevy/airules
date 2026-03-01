@@ -12,7 +12,7 @@ import type { AirulesConfig } from './types.js';
 const program = new Command();
 
 program
-  .name('airules')
+  .name('airulegen')
   .description('One command. Every AI coding tool. Zero config.')
   .version('0.1.0');
 
