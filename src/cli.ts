@@ -5,6 +5,10 @@ import chalk from 'chalk';
 import ora from 'ora';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const pkg = require('../package.json') as { version: string };
 import { generate, listPresets, listTools } from './core/engine.js';
 import { loadConfig, saveConfig } from './core/config.js';
 import type { AirulesConfig } from './types.js';
@@ -14,7 +18,7 @@ const program = new Command();
 program
   .name('airulegen')
   .description('One command. Every AI coding tool. Zero config.')
-  .version('0.1.0');
+  .version(pkg.version);
 
 program
   .command('init')
