@@ -1,22 +1,22 @@
 <div align="center">
 
-# airules
+# airulegen
 
 **One command. Every AI coding tool. Zero config.**
 
 Auto-scan your project and generate optimized rule files for Claude, Cursor, Copilot, Windsurf, and 9 more tools.
 
-[![npm version](https://img.shields.io/npm/v/airules?color=blue)](https://www.npmjs.com/package/airules)
+[![npm version](https://img.shields.io/npm/v/airulegen?color=blue)](https://www.npmjs.com/package/airulegen)
+[![npm downloads](https://img.shields.io/npm/dm/airulegen?color=brightgreen)](https://www.npmjs.com/package/airulegen)
+[![CI](https://github.com/deepdevy/airules/actions/workflows/ci.yml/badge.svg)](https://github.com/deepdevy/airules/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
-[![tests](https://img.shields.io/badge/tests-162%20passed-brightgreen)](#)
-[![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)](./tsconfig.json)
 
 </div>
 
 ---
 
 > **Stop manually writing `.cursorrules`, `CLAUDE.md`, `.windsurfrules`** for every project.
-> `airules` scans your tech stack and generates them all — instantly.
+> `airulegen` scans your tech stack and generates them all — instantly.
 
 ```bash
 npx airulegen init
@@ -269,7 +269,7 @@ Contributions are welcome! Areas where help is most needed:
 
 ```bash
 # Clone and setup
-git clone https://github.com/YOUR_USERNAME/airules.git
+git clone https://github.com/deepdevy/airules.git
 cd airules
 npm install
 
@@ -287,7 +287,7 @@ npm run build      # production build
 
 <div align="center">
 
-**If this saved you time, consider giving it a star.**
+**If this saved you time, consider giving it a ⭐**
 
 [Report Bug](../../issues) · [Request Feature](../../issues) · [Discussions](../../discussions)
 
