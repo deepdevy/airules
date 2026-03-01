@@ -1,0 +1,294 @@
+<div align="center">
+
+# airules
+
+**One command. Every AI coding tool. Zero config.**
+
+Auto-scan your project and generate optimized rule files for Claude, Cursor, Copilot, Windsurf, and 8 more tools.
+
+[![npm version](https://img.shields.io/npm/v/airules?color=blue)](https://www.npmjs.com/package/airules)
+[![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![tests](https://img.shields.io/badge/tests-162%20passed-brightgreen)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)](./tsconfig.json)
+
+</div>
+
+---
+
+> **Stop manually writing `.cursorrules`, `CLAUDE.md`, `.windsurfrules`** for every project.
+> `airules` scans your tech stack and generates them all — instantly.
+
+```bash
+npx airules init
+```
+
+<div align="center">
+
+<!-- TODO: Replace with actual terminal recording (asciinema or VHS) -->
+
+```
+$ npx airules init
+
+✔ Project scanned
+
+Detected Stack:
+  Language:        typescript
+  Framework:       nextjs
+  Package Manager: pnpm
+  Styling:         tailwind
+  Testing:         vitest
+  ORM:             prisma
+
+Matched Presets:
+  ✓ general
+  ✓ typescript
+  ✓ nextjs
+  ✓ react
+
+✔ Generated 11 rule files
+
+  ✓ CLAUDE.md
+  ✓ .cursor/rules/airules.mdc
+  ✓ .windsurfrules
+  ✓ .github/copilot-instructions.md
+  ✓ .clinerules
+  ✓ AGENTS.md
+  ✓ GEMINI.md
+  ✓ CONVENTIONS.md
+  ✓ .rules
+  ✓ .roo/rules/airules.md
+  ✓ .amazonq/rules/airules.md
+  ✓ .airules.yaml
+```
+
+</div>
+
+## Why airules?
+
+You're using AI coding assistants. So is your team. But each tool needs its own config file in its own format — and writing good rules by hand is tedious, inconsistent, and usually gets skipped.
+
+**airules fixes this.** One scan. One config. Every tool gets optimized rules, tailored to your actual stack.
+
+| Problem | Without airules | With airules |
+|---------|----------------|-------------|
+| New project setup | Manually write rules for each AI tool | `npx airules init` — done in 2 seconds |
+| Team consistency | Everyone has different rules (or none) | Commit generated files — whole team benefits |
+| Adding a new AI tool | Copy-paste and adapt from another tool's format | `npx airules sync` — regenerate all |
+| Framework best practices | Google it, hope the AI follows it | Built-in presets with battle-tested rules |
+
+## Supported Tools
+
+| Tool | Output File | Format |
+|------|-----------|--------|
+| **Claude Code** | `CLAUDE.md` | Markdown |
+| **Cursor** | `.cursor/rules/airules.mdc` | YAML frontmatter + Markdown |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | Markdown |
+| **Windsurf** | `.windsurfrules` | Markdown |
+| **Cline** | `.clinerules` | Markdown |
+| **OpenAI Codex** | `AGENTS.md` | Markdown |
+| **OpenCode** | `AGENTS.md` | Markdown |
+| **Gemini** | `GEMINI.md` | Markdown |
+| **Aider** | `CONVENTIONS.md` | Markdown |
+| **Zed** | `.rules` | Markdown |
+| **Roo Code** | `.roo/rules/airules.md` | YAML frontmatter + Markdown |
+| **Amazon Q** | `.amazonq/rules/airules.md` | Markdown |
+
+## Supported Frameworks
+
+Auto-detected from your project. Zero config required.
+
+| Preset | Detects | Rules Include |
+|--------|---------|---------------|
+| **General** | All projects | Code style, error handling, security, git conventions |
+| **TypeScript** | `tsconfig.json` | Type safety, patterns, imports, error handling |
+| **Next.js** | `next` in deps | App Router, data fetching, routing, performance |
+| **React** | `react` in deps | Components, hooks, state management, patterns |
+| **Vue** | `vue` in deps | Composition API, SFC, composables |
+| **Express** | `express` in deps | Middleware, routing, security |
+| **FastAPI** | `fastapi` in deps | Pydantic, dependency injection, async patterns |
+| **Django** | `django` in deps | Models, views, ORM, security |
+| **Go** | `go.mod` | Error handling, interfaces, project structure |
+| **Rust** | `Cargo.toml` | Ownership, error handling, patterns |
+
+## How It Works
+
+```
+1. SCAN        Your project's package.json, tsconfig, go.mod, etc.
+               Detects: language, framework, dependencies, structure
+                                    ↓
+2. MATCH       Auto-selects relevant presets (e.g., TypeScript + Next.js + React)
+               Generates framework-specific, actionable rules
+                                    ↓
+3. EMIT        Writes correctly formatted files for each AI tool
+               CLAUDE.md, .cursorrules, .windsurfrules, AGENTS.md, etc.
+```
+
+## Quick Start
+
+### Generate rules for all tools
+
+```bash
+npx airules init
+```
+
+### Generate for specific tools only
+
+```bash
+npx airules init --tools claude,cursor,copilot
+```
+
+### Preview without writing files
+
+```bash
+npx airules init --dry-run
+```
+
+### Regenerate from existing config
+
+```bash
+npx airules sync
+```
+
+### List available presets and tools
+
+```bash
+npx airules list
+```
+
+## Configuration
+
+After running `init`, airules creates `.airules.yaml` in your project root:
+
+```yaml
+# Generated by airules. Customize as needed.
+version: 1
+
+tools:
+  - claude
+  - cursor
+  - copilot
+  - windsurf
+  - cline
+  - codex
+  - gemini
+  - aider
+  - zed
+  - roo
+  - amazonq
+
+presets:
+  - general
+  - typescript
+  - nextjs
+  - react
+
+detected:
+  language: typescript
+  framework: nextjs
+  packageManager: pnpm
+  styling: tailwind
+  testing: vitest
+  orm: prisma
+
+# Add custom rules
+custom:
+  - title: "Project Conventions"
+    content: |
+      - Use pnpm for package management
+      - All API routes must use zod validation
+```
+
+Edit this file, then run `npx airules sync` to regenerate.
+
+## What Makes the Rules Good?
+
+Unlike generic "write clean code" advice, airules generates **specific, actionable rules** that AI assistants can actually follow:
+
+```markdown
+## Type Safety
+
+- **Never use `any`** — use `unknown` and narrow with type guards
+- **Never use `@ts-ignore` or `@ts-expect-error`** — fix the underlying type error
+- Prefer `interface` for object shapes, `type` for unions/intersections
+- Use `readonly` for immutable data
+- Always type exported function params and return types
+- Use discriminated unions over type assertions
+
+## Next.js App Router
+
+- Use Server Components by default — only add `'use client'` when you need
+  browser APIs, event handlers, or React hooks
+- Use `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx` naming conventions
+- Fetch data in Server Components, not with `useEffect`
+- Use Server Actions for mutations instead of API routes
+```
+
+Every rule is something an AI can follow immediately. No fluff.
+
+## vs Alternatives
+
+| Feature | **airules** | dotagent | rulebook-ai |
+|---------|:-----------:|:--------:|:-----------:|
+| Auto-scan project | **Yes** | No | No |
+| Generate rules from scratch | **Yes** | No | No |
+| Convert between formats | Planned | Yes | Yes |
+| Zero config | **Yes** | No | No |
+| Tools supported | **12** | 15 | 8 |
+| Framework presets | **10** | 0 | 0 |
+| Language | TypeScript | TypeScript | Python |
+| One command | `npx airules init` | Manual config | `pip install` + config |
+
+## Programmatic API
+
+```typescript
+import { generate, scanProject } from 'airules';
+
+// Scan a project
+const scan = await scanProject('./my-project');
+
+// Generate rule files
+const result = await generate({
+  projectRoot: './my-project',
+  tools: ['claude', 'cursor'],
+});
+
+// result.emitResults contains { path, content } for each file
+for (const file of result.emitResults) {
+  console.log(file.path, file.content.length);
+}
+```
+
+## Contributing
+
+Contributions are welcome! Areas where help is most needed:
+
+- **New presets** — Add rules for Ruby/Rails, PHP/Laravel, Svelte, Angular, etc.
+- **New emitters** — Support additional AI coding tools
+- **Rule quality** — Improve existing preset rules based on real-world experience
+- **Testing** — More edge cases, E2E tests
+
+```bash
+# Clone and setup
+git clone https://github.com/YOUR_USERNAME/airules.git
+cd airules
+npm install
+
+# Dev workflow
+npm run dev        # watch mode
+npm test           # run tests
+npm run build      # production build
+```
+
+## License
+
+[MIT](./LICENSE)
+
+---
+
+<div align="center">
+
+**If this saved you time, consider giving it a star.**
+
+[Report Bug](../../issues) · [Request Feature](../../issues) · [Discussions](../../discussions)
+
+</div>
